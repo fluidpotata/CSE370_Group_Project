@@ -32,7 +32,7 @@ $res = $rows[0]['resID'];
 
     $sql1 = "SELECT COUNT(DISTINCT orderID) AS orderCount
          FROM orders
-         WHERE resID='$resID' and status = 'ready'";
+         WHERE resID='$resID' and status != 'ready'";
 
     $resultCountOrders = mysqli_query($connection, $sql1);
 
@@ -49,7 +49,7 @@ $res = $rows[0]['resID'];
 
     $sql2 = "SELECT DISTINCT orderID
     FROM orders 
-    WHERE resID='$resID' and status = 'ready'";
+    WHERE resID='$resID' and status != 'ready'";
     $result_OIDs = mysqli_query($connection, $sql2);
 
 
@@ -66,14 +66,14 @@ $res = $rows[0]['resID'];
 
         $sql3 = "SELECT F.foodName, O.Quantity, CONCAT(C.fname, ' ', C.lname) AS CusName
         FROM Orders O, Food F, Customers C
-        WHERE O.foodID = F.foodID AND O.cusID = C.cusID AND orderID = '$orderID' and status = 'ready'";
+        WHERE O.foodID = F.foodID AND O.cusID = C.cusID AND orderID = '$orderID' and status != 'ready'";
         $result_display = mysqli_query($connection, $sql3);
         $numRows = mysqli_num_rows($result_display);
 
         // SQL query with a variable for orderID
         $sql4 = "SELECT SUM(quantity * amount) as TP
         FROM orders
-        WHERE orderID = '$orderID' and status = 'ready'";
+        WHERE orderID = '$orderID' and status != 'ready'";
 
         $result_TP = mysqli_query($connection, $sql4);
         // Fetch the result_TP

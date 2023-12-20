@@ -10,7 +10,6 @@ require_once("dbconnect.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Order History</title>
@@ -24,7 +23,7 @@ require_once("dbconnect.php");
     
     $sql1 = "SELECT COUNT(DISTINCT orderID) AS orderCount
                     FROM orders
-                    WHERE cusID='$cusID' and status = 'pending' or status = 'ready' or status = 'pending'";
+                    WHERE cusID='$cusID' and status != 'pending'";
 
     $resultCountOrders = mysqli_query($connection, $sql1);
 
@@ -36,7 +35,7 @@ require_once("dbconnect.php");
 
     $sql2 = "SELECT DISTINCT orderID
     FROM orders 
-    WHERE cusID = '$cusID' and status = 'pending'";
+    WHERE cusID = '$cusID' and status != 'pending'";
     $result_OIDs = mysqli_query($connection, $sql2);
 
     // (later loop chalabo one div for one order with info)
@@ -51,13 +50,13 @@ require_once("dbconnect.php");
         echo "<u>ORDER ID:". $orderID . "</u><br>";
         $sql3 = "SELECT foodName, name, Quantity, amount
                  FROM Orders O, Food F, Restaurant R
-                 WHERE O.foodID = F.foodID AND O.resID = R.resID AND orderID = '$orderID' and status='pending'";
+                 WHERE O.foodID = F.foodID AND O.resID = R.resID AND orderID = '$orderID' and status !='pending'";
 
         $result_display = mysqli_query($connection, $sql3);
 
         $sql4 = "SELECT SUM(Quantity * amount) as TP
         FROM orders
-        WHERE orderID = '$orderID' and status = 'pending'";
+        WHERE orderID = '$orderID' and status != 'pending'";
 
         $result_TP = mysqli_query($connection, $sql4);
 
