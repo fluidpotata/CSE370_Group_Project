@@ -1,6 +1,6 @@
 # QuickEats - A Food Ordering Management System [BRACU CSE370 Lab Project]
 __Group Members :__ <br><br>
-[Ibrahim Alif](https://github.com/fluidpotata) | [Samira Akter](https://github.com/mystic) | [Farhin Ulfat](https://github.com/lililiyabbayx) | [Farah Main Bhuiyan](https://github.com/farah-desu)
+[Ibrahim Alif](https://github.com/fluidpotata) | [Samira Akter](https://github.com/sssamira) | [Farhin Ulfat](https://github.com/lililiyabbayx) | [Farah Main Bhuiyan](https://github.com/farah-desu)
 
 __Supervising Faculty :__  <br><br>
 [Mr. Quazi Ashikur Rahman](https://cse.sds.bracu.ac.bd/faculty_profile/32/mr_quazi_ashikur_rahman), [Nowshin Tabassum](https://cse.sds.bracu.ac.bd/faculty_profile/237/nowshin_tabassum)
