@@ -59,7 +59,6 @@ Pass: password
 ### Manager Panel :
 Email: samira.akter1@g.bracu.ac.bd <br>
 Pass: 111
-Pass: password
 
 ### Rider Panel :
 Email: farhinulfatanikaa@gmail.com <br>
